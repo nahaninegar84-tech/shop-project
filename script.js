@@ -163,6 +163,19 @@ function updateCartUI() {
     }
 }
 
+
+    // نمایش مجموع و دکمه تایید خرید
+    if(cart.length > 0){
+        const totalDiv = document.createElement("div");
+        totalDiv.innerHTML = `
+            <hr>
+            <p><strong>مجموع:</strong> ${totalPrice.toLocaleString()} تومان</p>
+            <button id="checkout">تایید خرید</button>
+        `;
+        cartItems.appendChild(totalDiv);
+    }
+}
+
 ;
 
     if(cart.length > 0){
@@ -221,4 +234,5 @@ function showProductDetails(product) {
 document.getElementById("close-modal").onclick = () => {
     document.getElementById("product-modal").style.display = "none";
 };
+
 
