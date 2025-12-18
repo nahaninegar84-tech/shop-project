@@ -204,3 +204,4 @@ function showProductDetails(product) {
 document.getElementById("close-modal").onclick = () => {
     document.getElementById("product-modal").style.display = "none";
 };
+
