@@ -42,7 +42,7 @@ const products = [
     { id: 14, name: "SSD 512GB", price: 3500000, image: ["images/ssd.jpg"],
         shortdesc:"SSD 512 گیگ",stock:15
      },
-    { id: 15, name: "کیس کامپیوتر", price: 2800000, image: ["images/computer case.jpg"],
+    { id: 15, name: "کیس کامپیوتر", price: 2800000, image: ["images/computer-case.jpg"],
         shortdesc:"کیس کامپیوتر با تهویه مناسب",stock:16
      }
 ];
