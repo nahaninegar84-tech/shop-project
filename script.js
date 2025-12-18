@@ -128,68 +128,25 @@ function updateCartUI() {
     const cartCount = document.getElementById("cart-count");
     const cartItems = document.getElementById("cart-items");
 
-    // محاسبه تعداد کل محصولات
     const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
     cartCount.textContent = totalCount;
 
-    // پاک کردن محتوای قبلی سبد
     cartItems.innerHTML = "";
     let totalPrice = 0;
 
-    // نمایش هر محصول
-    cart.forEach(item => {
-        totalPrice += item.price * item.quantity;  // ← جمع کل رو اینجا محاسبه می‌کنیم
+cart.forEach(item => {
+    totalPrice += item.price * item.quantity;  // ← این خط رو اضافه کن
+    const div = document.createElement("div");
+    div.innerHTML = `
+        <img src="${item.image[0]}" width="50" style="margin-right:5px">
+        <strong>${item.name}</strong> | ${item.quantity} × ${item.price.toLocaleString()} تومان
+        <br>${item.shortdesc}
+        <br><button onclick="removeFromCart(${item.id})">حذف</button>
+        <hr>
+    `;
+    cartItems.appendChild(div);
+});
 
-        const div = document.createElement("div");
-        div.innerHTML = `
-            <img src="${item.image[0]}" width="50" style="margin-right:5px">
-            <strong>${item.name}</strong> | ${item.quantity} × ${item.price.toLocaleString()} تومان
-            <br>${item.shortdesc}
-            <br><button onclick="removeFromCart(${item.id})">حذف</button>
-            <hr>
-        `;
-        cartItems.appendChild(div);
-    });
-
-    // نمایش مجموع و دکمه تایید خرید
-    if(cart.length > 0){
-        const totalDiv = document.createElement("div");
-        totalDiv.innerHTML = `
-            <hr>
-            <p><strong>مجموع:</strong> ${totalPrice.toLocaleString()} تومان</p>
-            <button id="checkout">تایید خرید</button>
-        `;
-        cartItems.appendChild(totalDiv);
-    }
-}
-
-
-    // نمایش مجموع و دکمه تایید خرید
-    if(cart.length > 0){
-        const totalDiv = document.createElement("div");
-        totalDiv.innerHTML = `
-            <hr>
-            <p><strong>مجموع:</strong> ${totalPrice.toLocaleString()} تومان</p>
-            <button id="checkout">تایید خرید</button>
-        `;
-        cartItems.appendChild(totalDiv);
-    }
-}
-
-
-    // نمایش مجموع و دکمه تایید خرید
-    if(cart.length > 0){
-        const totalDiv = document.createElement("div");
-        totalDiv.innerHTML = `
-            <hr>
-            <p><strong>مجموع:</strong> ${totalPrice.toLocaleString()} تومان</p>
-            <button id="checkout">تایید خرید</button>
-        `;
-        cartItems.appendChild(totalDiv);
-    }
-}
-
-;
 
     if(cart.length > 0){
         const totalDiv = document.createElement("div");
@@ -247,6 +204,3 @@ function showProductDetails(product) {
 document.getElementById("close-modal").onclick = () => {
     document.getElementById("product-modal").style.display = "none";
 };
-
-
-
