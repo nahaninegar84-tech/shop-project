@@ -82,6 +82,18 @@ button:hover {
     z-index: 2000;
     transition: opacity 0.3s ease;
 }
+#modal-content-wrapper {
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 550px;
+    max-height: 80%;
+    overflow: auto;
+    position: relative;
+    text-align: center;
+    animation: scaleIn 0.3s ease;
+}
 
 #modal-content {
     background: var(--card);
@@ -227,6 +239,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
