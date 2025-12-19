@@ -222,7 +222,7 @@ body.dark #cart-items {
     font-weight: 300;
     cursor: pointer;
     color: var(--primary);
-    background: transparent;
+    background: rgba(255,255,255,0.8);
     transition: all 0.25s ease;
 }
 
@@ -234,11 +234,13 @@ body.dark #cart-items {
 /* دارک مود */
 body.dark #close-modal {
     color: #e5e7eb;
+    background: rgba(0,0,0,0.5); /* بک‌گراند تیره نیمه شفاف */
 }
 
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
