@@ -71,9 +71,15 @@ button:hover {
 
 /* modal */
 #product-modal {
+    position: fixed;
+    inset: 0; /* بالا، پایین، چپ، راست صفر */
+    background: rgba(0,0,0,0.6);
+    display: flex;           /* اضافه کن */
+    justify-content: center;  /* وسط افقی */
+    align-items: center;      /* وسط عمودی */
+    z-index: 2000;
     transition: opacity 0.3s ease;
 }
-
 
 #modal-content {
     background: var(--card);
@@ -83,7 +89,9 @@ button:hover {
     max-width: 550px;
     text-align: center;
     animation: scaleIn 0.3s ease;
+    position: relative; /* مطمئن شو position relative باشه */
 }
+
 
 @keyframes scaleIn {
     from {
@@ -168,6 +176,7 @@ body.dark {
     background-color: var(--secondary);
     transform: scale(1.05);
 }
+
 
 
 
