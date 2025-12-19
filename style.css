@@ -35,8 +35,9 @@ h1 {
 }
 
 #products > div:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 
@@ -48,18 +49,9 @@ h1 {
 
 /* دکمه‌ها */
 button {
-    background-color: var(--secondary);
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s;
 }
-
 button:hover {
-    background-color: var(--primary);
     transform: scale(1.05);
 }
 
@@ -79,14 +71,9 @@ button:hover {
 
 /* modal */
 #product-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
+    transition: opacity 0.3s ease;
 }
+
 
 #modal-content {
     background: var(--card);
@@ -153,6 +140,7 @@ body.dark {
     border-radius: 50%;
     font-size: 18px;
 }
+
 
 
 
