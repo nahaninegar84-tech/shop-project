@@ -204,4 +204,10 @@ function showProductDetails(product) {
 document.getElementById("close-modal").onclick = () => {
     document.getElementById("product-modal").style.display = "none";
 };
+const darkBtn = document.getElementById("dark-toggle");
+
+darkBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+});
+
 
