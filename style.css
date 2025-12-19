@@ -1,7 +1,7 @@
 :root {
     --primary: #1e3a8a;   /* آبی تیره */
     --secondary: #2563eb; /* آبی دکمه */
-    --bg: #e5e7eb;
+    --bg: #e0e0e0;
        /* پس‌زمینه */
     --card: #ffffff;
 }
@@ -89,17 +89,71 @@ button:hover {
 }
 
 #modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
+    background: var(--card);
+    padding: 25px;
+    border-radius: 16px;
     width: 90%;
-    max-width: 500px;
+    max-width: 550px;
     text-align: center;
+    animation: scaleIn 0.3s ease;
 }
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 h1 {
     color: var(--primary);
     font-weight: 700;
 }
+#close-modal {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #555;
+}
+
+#close-modal:hover {
+    color: red;
+}
+#cart-container button {
+    background-color: var(--primary);
+    border-radius: 10px;
+}
+
+#cart-items {
+    background: var(--card);
+    padding: 15px;
+}
+
+#cart-items div {
+    margin-bottom: 10px;
+}
+body.dark {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --primary: #38bdf8;
+    --secondary: #0ea5e9;
+    color: #e5e7eb;
+}
+#dark-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
 
 
 
