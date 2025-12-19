@@ -18,8 +18,9 @@ const products = [
 ];
 
 let cart = []; // سبد خرید خالی
-
 const productsDiv = document.getElementById("products");
+const searchInput = document.getElementById("search");
+const darkBtn = document.getElementById("dark-toggle");
 
 // نمایش محصولات
 function displayProduct(product) {
@@ -39,13 +40,10 @@ function displayProduct(product) {
         <button>افزودن به سبد خرید</button>
     `;
 
-    // کلیک روی کارت برای نمایش جزئیات
     productCard.addEventListener("click", () => showProductDetails(product));
-
-    // دکمه افزودن به سبد
     const btn = productCard.querySelector("button");
-    btn.addEventListener("click", (event) => {
-        event.stopPropagation();
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
         addToCart(product.id);
     });
 
@@ -55,52 +53,50 @@ function displayProduct(product) {
 // initial render
 products.forEach(displayProduct);
 
-// افزودن یک محصول به سبد خرید
+// جستجو
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    productsDiv.innerHTML = "";
+    products.filter(p => p.name.toLowerCase().includes(query) || p.shortdesc.toLowerCase().includes(query))
+            .forEach(displayProduct);
+});
+
+// افزودن به سبد خرید
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     const existing = cart.find(item => item.id === productId);
-
-    if (existing) {
-        existing.quantity += 1;
-    } else {
-        cart.push({ ...product, quantity: 1 });
-    }
-
+    if (existing) existing.quantity += 1;
+    else cart.push({ ...product, quantity: 1 });
     updateCartUI();
 }
 
-// افزودن چند عدد محصول از modal
+// افزودن چند محصول از modal
 function addToCartMultiple(productId, quantity) {
     const product = products.find(p => p.id === productId);
     const existing = cart.find(item => item.id === productId);
 
-    if (quantity > product.stock) {
+    if(quantity > product.stock){
         alert("تعداد انتخابی بیشتر از موجودی است!");
         return;
     }
-
-    if (existing) {
-        if (existing.quantity + quantity > product.stock) {
+    if(existing){
+        if(existing.quantity + quantity > product.stock){
             alert("موجودی کافی نیست!");
             return;
         }
         existing.quantity += quantity;
-    } else {
-        cart.push({ ...product, quantity });
-    }
+    } else cart.push({ ...product, quantity });
 
-    product.stock -= quantity; // کم شدن موجودی
+    product.stock -= quantity;
     updateCartUI();
 }
 
-// بروزرسانی UI سبد خرید
+// بروزرسانی سبد خرید
 function updateCartUI() {
     const cartCount = document.getElementById("cart-count");
     const cartItems = document.getElementById("cart-items");
 
-    const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCount.textContent = totalCount;
-
+    cartCount.textContent = cart.reduce((sum,item)=>sum+item.quantity,0);
     cartItems.innerHTML = "";
     let totalPrice = 0;
 
@@ -122,7 +118,6 @@ function updateCartUI() {
         totalDiv.innerHTML = `<hr><p>مجموع: ${totalPrice.toLocaleString()} تومان</p>
         <button id="checkout">تایید خرید</button>`;
         cartItems.appendChild(totalDiv);
-
         document.getElementById("checkout").addEventListener("click", () => {
             alert(`خرید شما با موفقیت انجام شد!\nمجموع پرداختی: ${totalPrice.toLocaleString()} تومان`);
             cart = [];
@@ -133,57 +128,60 @@ function updateCartUI() {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// بارگذاری سبد خرید از localStorage هنگام لود سایت
+// بارگذاری سبد خرید از localStorage
 window.addEventListener("load", () => {
     const savedCart = localStorage.getItem("cart");
-    if(savedCart) {
+    if(savedCart){
         cart = JSON.parse(savedCart);
         updateCartUI();
     }
 });
 
-// حذف محصول از سبد خرید
-function removeFromCart(productId) {
-    cart = cart.filter(item => item.id !== productId);
+// حذف از سبد خرید
+function removeFromCart(productId){
+    cart = cart.filter(item=>item.id!==productId);
     updateCartUI();
 }
 
-// نمایش/مخفی کردن سبد خرید
+// نمایش/مخفی کردن سبد
 document.getElementById("cart-button").addEventListener("click", () => {
     const cartItems = document.getElementById("cart-items");
     cartItems.style.display = cartItems.style.display === "none" ? "block" : "none";
 });
 
-// نمایش جزئیات محصول (modal)
-function showProductDetails(product) {
+// نمایش جزئیات محصول
+function showProductDetails(product){
     const modal = document.getElementById("product-modal");
     const content = document.getElementById("modal-content");
 
     content.innerHTML = `
-    <h2>${product.name}</h2>
-    <div style="text-align:center">
-        ${product.image.map(img => `<img src="${img}" style="width:200px; margin:5px">`).join('')}
-    </div>
-    <p><strong>قیمت:</strong> ${product.price.toLocaleString()} تومان</p>
-    <p><strong>توضیح کوتاه:</strong> ${product.shortdesc}</p>
-    <p><strong>تعداد موجودی:</strong> ${product.stock} عدد</p>
-    <label>تعداد انتخابی: 
-        <input type="number" id="modal-quantity" value="1" min="1" max="${product.stock}">
-    </label>
-    <br><br>
-    <button id="modal-add">افزودن به سبد خرید</button>
+        <h2>${product.name}</h2>
+        <div style="text-align:center">
+            ${product.image.map(img=>`<img src="${img}" style="width:200px; margin:5px">`).join('')}
+        </div>
+        <p><strong>قیمت:</strong> ${product.price.toLocaleString()} تومان</p>
+        <p><strong>توضیح کوتاه:</strong> ${product.shortdesc}</p>
+        <p><strong>تعداد موجودی:</strong> ${product.stock} عدد</p>
+        <label>تعداد انتخابی: 
+            <input type="number" id="modal-quantity" value="1" min="1" max="${product.stock}">
+        </label>
+        <br><br>
+        <button id="modal-add">افزودن به سبد خرید</button>
     `;
-
-    document.getElementById("modal-add").onclick = () => {
+    document.getElementById("modal-add").onclick = ()=>{
         const qty = parseInt(document.getElementById("modal-quantity").value);
         addToCartMultiple(product.id, qty);
         modal.style.display = "none";
     };
-
     modal.style.display = "flex";
 }
 
 // بستن modal
-document.getElementById("close-modal").onclick = () => {
+document.getElementById("close-modal").onclick = ()=>{
     document.getElementById("product-modal").style.display = "none";
 };
+
+// dark mode
+darkBtn.addEventListener("click", ()=>{
+    document.body.classList.toggle("dark");
+});
