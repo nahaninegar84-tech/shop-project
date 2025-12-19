@@ -159,17 +159,40 @@ function updateCartUI() {
     cartItems.innerHTML = "";
     let totalPrice = 0;
 
-cart.forEach(item => {
-    totalPrice += item.price * item.quantity;  // ← این خط رو اضافه کن
-    const div = document.createElement("div");
-    div.innerHTML = `
-        <img src="${item.image[0]}" width="50" style="margin-right:5px">
-        <strong>${item.name}</strong> | ${item.quantity} × ${item.price.toLocaleString()} تومان
-        <br>${item.shortdesc}
-        <br><button onclick="removeFromCart(${item.id})">حذف</button>
-        <hr>
-    `;
-    cartItems.appendChild(div);
+    cart.forEach(item => {
+        totalPrice += item.price * item.quantity;
+        const div = document.createElement("div");
+        div.innerHTML = `
+            <img src="${item.image[0]}" width="50" style="margin-right:5px">
+            <strong>${item.name}</strong> | ${item.quantity} × ${item.price.toLocaleString()} تومان
+            <br>${item.shortdesc}
+            <br><button onclick="removeFromCart(${item.id})">حذف</button>
+            <hr>
+        `;
+        cartItems.appendChild(div);
+    });
+
+    if(cart.length > 0){
+        const totalDiv = document.createElement("div");
+        totalDiv.innerHTML = `<hr><p>مجموع: ${totalPrice.toLocaleString()} تومان</p>
+        <button id="checkout">تایید خرید</button>`;
+        cartItems.appendChild(totalDiv);
+    }
+
+    // ذخیره سبد خرید
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// بارگذاری سبد خرید از localStorage هنگام لود سایت
+window.addEventListener("load", () => {
+    const savedCart = localStorage.getItem("cart");
+    if(savedCart) {
+        cart = JSON.parse(savedCart);
+        document.getElementById("checkout")?.addEventListener("click", () => {
+    alert(`خرید شما با موفقیت انجام شد!\nمجموع پرداختی: ${cart.reduce((sum,item)=>sum+item.price*item.quantity,0).toLocaleString()} تومان`);
+    cart = [];
+        updateCartUI();
+    }
 });
 
 
@@ -234,6 +257,7 @@ const darkBtn = document.getElementById("dark-toggle");
 darkBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
+
 
 
 
