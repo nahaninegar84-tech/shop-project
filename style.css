@@ -1,5 +1,5 @@
 body {
-    font-family: Tahoma, sans-serif;
+    font-family: 'Vazirmatn', sans-serif;
     direction: rtl;
     margin: 0;
     padding: 20px;
@@ -84,3 +84,4 @@ button:hover {
     max-width: 500px;
     text-align: center;
 }
+
