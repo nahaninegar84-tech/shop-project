@@ -76,11 +76,14 @@ button:hover {
     position: fixed;
     inset: 0; /* بالا، پایین، چپ، راست صفر */
     background: rgba(0,0,0,0.6);
-    display: flex;           /* اضافه کن */
+    display: none;           /* اضافه کن */
     justify-content: center;  /* وسط افقی */
     align-items: center;      /* وسط عمودی */
     z-index: 2000;
     transition: opacity 0.3s ease;
+}
+#product-modal.active {
+    display: flex;              
 }
 #modal-content-wrapper {
     background: var(--card);
@@ -221,8 +224,8 @@ body.dark #cart-items {
     font-size: 24px;
     font-weight: 300;
     cursor: pointer;
-    color: var(--primary);
-    background: rgba(255,255,255,0.8);
+    color: #111;
+    background: rgba(255,255,255,0.9);
     transition: all 0.25s ease;
 }
 
@@ -240,6 +243,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
