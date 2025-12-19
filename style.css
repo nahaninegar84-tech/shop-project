@@ -140,6 +140,35 @@ body.dark {
     border-radius: 50%;
     font-size: 18px;
 }
+/* کارت محصولات */
+.product-card {
+    background: var(--card);
+    border-radius: 14px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* دکمه افزودن */
+.btn-add {
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.btn-add:hover {
+    background-color: var(--secondary);
+    transform: scale(1.05);
+}
+
 
 
 
