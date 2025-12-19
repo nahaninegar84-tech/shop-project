@@ -51,9 +51,17 @@ let cart = []; // سبد خرید خالی
 
 // گرفتن div محصولات
 const productsDiv = document.getElementById("products");
+const searchInput = document.getElementById("search");
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    productsDiv.innerHTML = "";
+    products
+        .filter(product => product.name.toLowerCase().includes(query) || product.shortdesc.toLowerCase().includes(query))
+        .forEach(displayProduct);
+});
 
 // نمایش محصولات
-products.forEach(product => {
+function displayProduct(product) {
     const productCard = document.createElement("div");
     productCard.style.cursor = "pointer";
     productCard.style.border = "1px solid #ccc";
@@ -69,6 +77,23 @@ products.forEach(product => {
         <p>قیمت: ${product.price.toLocaleString()} تومان</p>
         <button>افزودن به سبد خرید</button>
     `;
+
+    // کلیک روی کارت برای نمایش جزئیات
+    productCard.addEventListener("click", () => showProductDetails(product));
+
+    // کلیک روی دکمه افزودن به سبد خرید
+    const btn = productCard.querySelector("button");
+    btn.addEventListener("click", (event) => {
+        event.stopPropagation(); // جلوگیری از باز شدن modal
+        addToCart(product.id);
+    });
+
+    productsDiv.appendChild(productCard);
+}
+
+// initial render
+products.forEach(displayProduct);
+
 
     // کلیک روی کارت برای نمایش جزئیات
     productCard.addEventListener("click", () => showProductDetails(product));
@@ -209,5 +234,6 @@ const darkBtn = document.getElementById("dark-toggle");
 darkBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
+
 
 
