@@ -149,7 +149,7 @@ h1 {
     /* دکمه‌های داخل سبد خرید */
 #cart-items button {
     background-color: var(--primary);
-    color: #fff; /* متن دکمه همیشه سفید */
+    color: #fff;
 }
 
 /* دکمه‌های داخل سبد خرید در دارک مود */
@@ -239,6 +239,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
