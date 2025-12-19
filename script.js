@@ -177,6 +177,33 @@ function updateCartUI() {
         totalDiv.innerHTML = `<hr><p>مجموع: ${totalPrice.toLocaleString()} تومان</p>
         <button id="checkout">تایید خرید</button>`;
         cartItems.appendChild(totalDiv);
+
+        document.getElementById("checkout").addEventListener("click", () => {
+            alert(`خرید شما با موفقیت انجام شد!\nمجموع پرداختی: ${totalPrice.toLocaleString()} تومان`);
+            cart = [];
+            updateCartUI();
+        });
+    }
+
+    // ذخیره سبد خرید
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// بارگذاری سبد خرید از localStorage هنگام لود سایت
+window.addEventListener("load", () => {
+    const savedCart = localStorage.getItem("cart");
+    if(savedCart) {
+        cart = JSON.parse(savedCart);
+        updateCartUI();
+    }
+});
+
+
+    if(cart.length > 0){
+        const totalDiv = document.createElement("div");
+        totalDiv.innerHTML = `<hr><p>مجموع: ${totalPrice.toLocaleString()} تومان</p>
+        <button id="checkout">تایید خرید</button>`;
+        cartItems.appendChild(totalDiv);
     }
 
     // ذخیره سبد خرید
@@ -257,6 +284,7 @@ const darkBtn = document.getElementById("dark-toggle");
 darkBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
+
 
 
 
