@@ -1,7 +1,8 @@
 :root {
     --primary: #1e3a8a;   /* آبی تیره */
     --secondary: #2563eb; /* آبی دکمه */
-    --bg: #f1f5f9;        /* پس‌زمینه */
+    --bg: #e5e7eb;
+       /* پس‌زمینه */
     --card: #ffffff;
 }
 body {
@@ -99,5 +100,6 @@ h1 {
     color: var(--primary);
     font-weight: 700;
 }
+
 
 
