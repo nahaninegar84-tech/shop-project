@@ -255,6 +255,43 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+/* دکمه افزودن داخل مودال – طوسی مدرن */
+.modal-btn {
+    background: linear-gradient(135deg, #e5e7eb, #d1d5db);
+    color: #1f2937;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    transition: all 0.25s ease;
+}
+
+/* هاور نرم */
+.modal-btn:hover {
+    transform: translateY(-3px) scale(1.04);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #d1d5db, #9ca3af);
+}
+
+/* کلیک */
+.modal-btn:active {
+    transform: scale(0.97);
+}
+
+/* دارک مود */
+body.dark .modal-btn {
+    background: linear-gradient(135deg, #374151, #1f2937);
+    color: #e5e7eb;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+body.dark .modal-btn:hover {
+    background: linear-gradient(135deg, #4b5563, #374151);
+}
+
 
 
 
