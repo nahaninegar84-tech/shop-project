@@ -125,18 +125,7 @@ h1 {
     color: var(--primary);
     font-weight: 700;
 }
-#close-modal {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    font-size: 28px;
-    cursor: pointer;
-    color: #555;
-}
 
-#close-modal:hover {
-    color: red;
-}
 #cart-container button {
     background-color: var(--primary);
     border-radius: 10px;
@@ -243,6 +232,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
