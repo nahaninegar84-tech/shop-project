@@ -1,5 +1,5 @@
 :root {
-    --primary: #2b4fd6;   /* آبی تیره */
+    --primary: #243faa;   /* آبی تیره */
     --secondary: #2563eb; /* آبی دکمه */
     --bg: #e0e0e0;
        /* پس‌زمینه */
@@ -255,6 +255,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
