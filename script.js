@@ -164,7 +164,7 @@ function showProductDetails(product){
             <input type="number" id="modal-quantity" value="1" min="1" max="${product.stock}">
         </label>
         <br><br>
-        <button id="modal-add">افزودن به سبد خرید</button>
+        <button id="modal-add" class="modal-btn">افزودن به سبد خرید</button>
     `;
     document.getElementById("modal-add").onclick = ()=>{
         const qty = parseInt(document.getElementById("modal-quantity").value);
@@ -183,6 +183,7 @@ document.getElementById("close-modal").onclick = ()=>{
 darkBtn.addEventListener("click", ()=>{
     document.body.classList.toggle("dark");
 });
+
 
 
 
