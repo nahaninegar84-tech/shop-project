@@ -199,28 +199,40 @@ body.dark #cart-items {
     background-color: var(--secondary);
     transform: scale(1.05);
 }
-/* دکمه بستن مودال – شیک و مینیمال */
+/* دکمه بستن مودال */
 #close-modal {
     position: absolute;
-    top: 16px;
-    left: 16px; /* چون rtl هست */
-    width: 36px;
-    height: 36px;
+    top: 12px;
+    right: 12px;     /* ✅ سمت راست */
+    left: auto;      /* ❌ چپ غیرفعال */
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 22px;
     cursor: pointer;
-    color: #111;
-    background: rgba(255,255,255,0.9);
+    color: #0f172a;              /* مشکی */
+    background: #ffffff;         /* بک سفید */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    z-index: 9999;               
     transition: all 0.25s ease;
 }
 
 #close-modal:hover {
-    background: rgba(0,0,0,0.08);
     transform: rotate(90deg) scale(1.1);
+    background: #f1f5f9;
+}
+
+/* دارک مود */
+body.dark #close-modal {
+    background: #1e293b;
+    color: #38bdf8;
+}
+
+body.dark #close-modal:hover {
+    background: #334155;
 }
 
 /* دارک مود */
@@ -232,6 +244,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
