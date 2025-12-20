@@ -1,5 +1,5 @@
 :root {
-    --primary: #1e3a8a;   /* آبی تیره */
+    --primary: #2b4fd6;   /* آبی تیره */
     --secondary: #2563eb; /* آبی دکمه */
     --bg: #e0e0e0;
        /* پس‌زمینه */
@@ -185,20 +185,31 @@ body.dark #cart-items {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-/* دکمه افزودن */
+/* دکمه افزودن به سبد خرید – شیک و مدرن */
 .btn-add {
-    background-color: var(--primary);
-    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
     border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 6px 15px rgba(43,79,214,0.35);
+    transition: all 0.25s ease;
 }
+
 .btn-add:hover {
-    background-color: var(--secondary);
-    transform: scale(1.05);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 10px 22px rgba(43,79,214,0.45);
 }
+
+/* دارک مود */
+body.dark .btn-add {
+    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+    box-shadow: 0 6px 15px rgba(56,189,248,0.4);
+}
+
 /* دکمه بستن مودال */
 #close-modal {
     position: absolute;
@@ -244,6 +255,7 @@ body.dark #close-modal {
 body.dark #close-modal:hover {
     background: rgba(255,255,255,0.1);
 }
+
 
 
 
