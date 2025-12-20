@@ -31,7 +31,7 @@ function displayProduct(product) {
         <img src="${product.image[0]}" width="150">
         <h3>${product.name}</h3>
         <p>قیمت: ${product.price.toLocaleString()} تومان</p>
-        <button class="btn-add">افزودن به سبد خرید</button> <!-- کلاس اضافه شد -->
+        <button class="btn-add modal-btn">افزودن به سبد خرید</button> <!-- کلاس اضافه شد -->
     `;
 
     // کلیک روی کارت برای نمایش جزئیات
@@ -183,4 +183,5 @@ document.getElementById("close-modal").onclick = ()=>{
 darkBtn.addEventListener("click", ()=>{
     document.body.classList.toggle("dark");
 });
+
 
