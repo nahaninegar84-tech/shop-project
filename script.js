@@ -1,20 +1,20 @@
 // لیست محصولات
 const products = [
-    { id: 1, name: "موس بی‌سیم", price: 250000, image: ["images/mouse.jpg","images/mouse2.jpg","images/mouse3.jpg"], shortdesc:"موس بی سیم با کیفیت ", stock:20 },
-    { id: 2, name: "کیبورد", price: 450000, image: ["images/keyboard.jpg","images/keyboard2.jpg","images/keyboard3.jpg"], shortdesc:"کیبورد حرفه ای با کلید های مقاوم و نور پس زمینه", stock:15 },
-    { id: 3, name: "هدفون", price: 700000, image: ["images/headphones.jpg","images/headphones2.jpg","images/headphones3.jpg"], shortdesc:"هدفون با کیفیت صدای بالا و حذف نویز", stock:25 },
+    { id: 1, name: "موس بی‌سیم", price: 400000, image: ["images/mouse.jpg","images/mouse2.jpg","images/mouse3.jpg"], shortdesc:"موس بی سیم با کیفیت ", stock:20 },
+    { id: 2, name: "کیبورد", price: 4500000, image: ["images/keyboard.jpg","images/keyboard2.jpg","images/keyboard3.jpg"], shortdesc:"کیبورد حرفه ای با کلید های مقاوم و نور پس زمینه", stock:15 },
+    { id: 3, name: "هدفون", price: 1000000, image: ["images/headphones.jpg","images/headphones2.jpg","images/headphones3.jpg"], shortdesc:"هدفون با کیفیت صدای بالا و حذف نویز", stock:25 },
     { id: 4, name: "فلش 32 گیگ", price: 300000, image: ["images/flash.jpg","images/flash2.jpg"], shortdesc:"فلش USB 32 گیگابایت", stock:5 },
-    { id: 5, name: "هارد اکسترنال", price: 2500000, image: ["images/hard.jpg","images/hard2.jpg","images/hard3.jpg"], shortdesc:"هارد اکسترنال با ظرفیت بالا و مقاوم", stock:15 },
+    { id: 5, name: "هارد اکسترنال", price: 250000, image: ["images/hard.jpg","images/hard2.jpg","images/hard3.jpg"], shortdesc:"هارد اکسترنال با ظرفیت بالا و مقاوم", stock:15 },
     { id: 6, name: "پاوربانک", price: 900000, image: ["images/powerbank.jpg","images/powerbanck2.jpg","images/powerbank3.jpg"], shortdesc:"پاوربانک با شارژ سریع و مقاوم", stock:17 },
-    { id: 7, name: "اسپیکر", price: 1200000, image: ["images/speaker.jpg","images/speaker3.jpg"], shortdesc:"اسپیکر با کیفیت صدای عالی", stock:23 },
+    { id: 7, name: "اسپیکر", price: 5000000, image: ["images/speaker.jpg","images/speaker3.jpg"], shortdesc:"اسپیکر با کیفیت صدای عالی", stock:23 },
     { id: 8, name: "وبکم", price: 800000, image: ["images/webcam.jpg","images/webcam2.jpg"], shortdesc:"وبکم HD مناسب تماس تصویری و ضبط ویدیو", stock:30 },
-    { id: 9, name: "مانیتور", price: 6000000, image: ["images/manitor.jpg","images/manitor2.jpg","images/manitor3.jpg"], shortdesc:"مانیتور با کیفیت full HD", stock:20 },
+    { id: 9, name: "مانیتور", price: 20000000, image: ["images/manitor.jpg","images/manitor2.jpg","images/manitor3.jpg"], shortdesc:"مانیتور با کیفیت full HD", stock:20 },
     { id: 10, name: "ماوس پد", price: 150000, image: ["images/mousepad.jpg","images/mousepad2.jpg"], shortdesc:"موس پد نرم و ضد لغزش", stock:18 },
     { id: 11, name: "کابل USB", price: 100000, image: ["images/usb.jpg"], shortdesc:"کابل USB با طول مناسب", stock:12 },
     { id: 12, name: "شارژر", price: 400000, image: ["images/charger.jpg"], shortdesc:"شارزر تایپ سی", stock:26 },
-    { id: 13, name: "رم 8 گیگ", price: 1300000, image: ["images/ram.jpg"], shortdesc:"رم 8 گیگابایت", stock:30 },
+    { id: 13, name: "رم 8 گیگ", price: 100000, image: ["images/ram.jpg"], shortdesc:"رم 8 گیگابایت", stock:30 },
     { id: 14, name: "SSD 512GB", price: 3500000, image: ["images/ssd.jpg"], shortdesc:"SSD 512 گیگ", stock:15 },
-    { id: 15, name: "کیس کامپیوتر", price: 2800000, image: ["images/computer-case.jpg"], shortdesc:"کیس کامپیوتر با تهویه مناسب", stock:16 }
+    { id: 15, name: "کیس کامپیوتر", price: 10000000, image: ["images/computer-case.jpg"], shortdesc:"کیس کامپیوتر با تهویه مناسب", stock:16 }
 ];
 
 let cart = []; // سبد خرید خالی
@@ -183,6 +183,7 @@ document.getElementById("close-modal").onclick = ()=>{
 darkBtn.addEventListener("click", ()=>{
     document.body.classList.toggle("dark");
 });
+
 
 
 
