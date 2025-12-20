@@ -138,19 +138,18 @@ h1 {
 
 #cart-items div {
     margin-bottom: 10px;
-    /* دکمه‌های داخل سبد خرید */
+}
+
 #cart-items button {
     background-color: var(--primary);
     color: #fff;
 }
 
-/* دکمه‌های داخل سبد خرید در دارک مود */
 body.dark #cart-items button {
     background-color: var(--secondary);
     color: #fff;
 }
 
-}
 body.dark {
     --bg: #0f172a;
     --card: #1e293b;
@@ -203,13 +202,6 @@ body.dark #cart-items {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 10px 22px rgba(43,79,214,0.45);
 }
-
-/* دارک مود */
-body.dark .btn-add {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-    box-shadow: 0 6px 15px rgba(56,189,248,0.4);
-}
-
 /* دکمه بستن مودال */
 #close-modal {
     position: absolute;
@@ -244,16 +236,6 @@ body.dark #close-modal {
 
 body.dark #close-modal:hover {
     background: #334155;
-}
-
-/* دارک مود */
-body.dark #close-modal {
-    color: #e5e7eb;
-    background: rgba(0,0,0,0.5); /* بک‌گراند تیره نیمه شفاف */
-}
-
-body.dark #close-modal:hover {
-    background: rgba(255,255,255,0.1);
 }
 /* دکمه افزودن داخل مودال – طوسی مدرن */
 .modal-btn {
@@ -291,6 +273,7 @@ body.dark .modal-btn {
 body.dark .modal-btn:hover {
     background: linear-gradient(135deg, #4b5563, #374151);
 }
+
 
 
 
