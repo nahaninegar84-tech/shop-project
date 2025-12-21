@@ -15,7 +15,7 @@ const products = [
     { id: 13, name: "رم 8 گیگ", price: 100000, image: ["images/ram.jpg"], shortdesc:"رم 8 گیگابایت", stock:30 },
     { id: 14, name: "SSD 512GB", price: 3500000, image: ["images/ssd.jpg"], shortdesc:"SSD 512 گیگ", stock:15 },
     { id: 15, name: "کیس کامپیوتر", price: 10000000, image: ["images/computer-case.jpg"], shortdesc:"کیس کامپیوتر با تهویه مناسب", stock:16 },
-    { id: 16, name: " keyboard", price:10000, stock:10}
+    { id: 16, name: " keyboard", price:10000,image:["images/key.jpg"],shortdesc:"کیبورد مقاوم", stock:10}
 ];
 
 let cart = []; // سبد خرید خالی
@@ -184,6 +184,7 @@ document.getElementById("close-modal").onclick = ()=>{
 darkBtn.addEventListener("click", ()=>{
     document.body.classList.toggle("dark");
 });
+
 
 
 
